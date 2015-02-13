@@ -1,0 +1,1100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+<link href="main.css" rel="stylesheet" type="text/css">
+<link href="animate.min.css" rel="stylesheet" type="text/css">
+
+<script src="jquery.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="cdv-plugin-parse.js"></script>
+
+<script>
+
+function onDeviceReady() {
+
+}
+
+function lpushorder() {
+window.plugin.notification.local.add({
+    id:         1,
+    message:    'We recieved your order! Thanks for choosing WHISKEY SUNDAYS',
+    title:      'Order Recieved',
+    autoCancel: true,
+    ongoing:    false
+});
+}
+function lpush() {
+window.plugin.notification.local.add({
+    id:         1,
+    message:    'Thanks for choosing WHISKEY SUNDAYS',
+    title:      'Welcome',
+    autoCancel: true,
+    ongoing:    false
+});
+}
+
+function dothisonload(){
+	
+	lpush();
+	
+	// alert('wurdegeladen');
+	
+		parsePlugin.initialize('khkU5e54h04HNCvj8PxMb1H84aKyUHPdL1LAsTNB','34GXbwMD5F2dy9VqwH31UlA5T3nvJB4Z1M6qO8Ei', function() {
+
+    parsePlugin.subscribe('WHISKEYSUNDAYS', function() {
+
+        parsePlugin.getInstallationId(function(id) {
+
+            /**
+             * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
+             * 
+             var install_data = {
+                installation_id: id,
+                channels: ['SampleChannel']
+             }
+             *
+             */
+
+        }, function(e) {
+            alert('error');
+        });
+
+    }, function(e) {
+        alert('error');
+    });
+
+}, function(e) {
+    alert('error');
+});	
+
+}
+
+function clearall() {
+	document.getElementById('product1').innerHTML = '';
+	document.getElementById('size1').innerHTML = '';
+	document.getElementById('price1').innerHTML = '';
+	document.getElementById('quantity1').innerHTML = '';
+	
+	document.getElementById('product2').innerHTML = '';
+	document.getElementById('size2').innerHTML = '';
+	document.getElementById('price2').innerHTML = '';
+	document.getElementById('quantity2').innerHTML = '';
+	
+	document.getElementById('product3').innerHTML = '';
+	document.getElementById('size3').innerHTML = '';
+	document.getElementById('price3').innerHTML = '';
+	document.getElementById('quantity3').innerHTML = '';
+	
+	document.getElementById('product4').innerHTML = '';
+	document.getElementById('size4').innerHTML = '';
+	document.getElementById('price4').innerHTML = '';
+	document.getElementById('quantity4').innerHTML = '';
+
+	document.getElementById('product5').innerHTML = '';
+	document.getElementById('size5').innerHTML = '';
+	document.getElementById('price5').innerHTML = '';
+	document.getElementById('quantity5').innerHTML = '';
+	
+	document.getElementById('product6').innerHTML = '';
+	document.getElementById('size6').innerHTML = '';
+	document.getElementById('price6').innerHTML = '';
+	document.getElementById('quantity6').innerHTML = '';
+	
+	document.getElementById('product7').innerHTML = '';
+	document.getElementById('size7').innerHTML = '';
+	document.getElementById('price7').innerHTML = '';
+	document.getElementById('quantity7').innerHTML = '';
+	
+	document.getElementById('product8').innerHTML = '';
+	document.getElementById('size8').innerHTML = '';
+	document.getElementById('price8').innerHTML = '';
+	document.getElementById('quantity8').innerHTML = '';
+	
+	document.getElementById('product9').innerHTML = '';
+	document.getElementById('size9').innerHTML = '';
+	document.getElementById('price9').innerHTML = '';
+	document.getElementById('quantity9').innerHTML = '';
+	
+	document.getElementById('product10').innerHTML = '';
+	document.getElementById('size10').innerHTML = '';
+	document.getElementById('price10').innerHTML = '';
+	document.getElementById('quantity10').innerHTML = '';
+	
+	document.getElementById('totalammount').innerHTML = 0;
+	document.getElementById('totalammount2').innerHTML = 0;
+	document.getElementById('addedtocartnumber').innerHTML = 0;
+}
+
+function clearcheckout() {
+	var closeit = confirm("Are you sure you want to clear your Shopping Cart?");
+if (closeit == true) {
+	
+  	 $("html, body").animate({ scrollTop: 0 }, "slow");
+	 
+	 window.localStorage.clear();
+	 clearall();
+	 
+	 document.getElementById('ordernowwindow').style.display='none';
+	 document.getElementById('opencartwindow').style.display='none';
+	 
+	 document.getElementById('mainholder').className = 'lessblur';
+	 
+	 document.getElementById('mainholder').style.display='block';
+	 
+	 // window.location.reload();
+	 
+} else {
+   
+}
+}
+
+function isNumber(n) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
+
+function opencartwindow() {
+var valuefrompromt = prompt("Quantity?", "1");
+while(valuefrompromt.length > 3){
+alert("Keep the length to 3 chars or less");
+valuefrompromt = prompt("Quantity?", "1");
+}
+if ((valuefrompromt != 0) && (isNumber (valuefrompromt))) {
+localStorage.setItem('numberofproducts',valuefrompromt);
+opencartwindow2();
+}
+else if (!isNumber (valuefrompromt)) {
+alert("Please enter a number!");
+}
+}
+function openpreorderwindow() {
+notifyproduct = localStorage.getItem('product');
+valuefrompromtname = prompt("Name?", "");
+if(!valuefrompromtname){
+   alert('Please enter your name.');
+   return;
+ };
+valuefrompromtphone = prompt("Phone?", "");
+valuefrompromtemail = prompt("E-Mail?", "");
+
+xmlhttp=new XMLHttpRequest();
+xmlhttp.open("GET","http://enunua.com/whiskysundays/preorder.php?name=" + valuefrompromtname + "&phone=" + valuefrompromtphone + "&email=" + valuefrompromtemail + "&product=" + notifyproduct + "",true);
+xmlhttp.send();
+		
+alert('Thank you ' + valuefrompromtname + ', we will notifiy you when ' + notifyproduct + ' becomes available.');
+
+}
+function opencartwindow2() {
+	
+var howmanycompare = localStorage.getItem('numberofproducts');
+var instock = localStorage.getItem('instock');
+	
+if (+howmanycompare > +instock) {
+alert("We do not have enough products in stock. Please order "+instock+" or less. Thank you.");
+return;
+}
+	
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	document.getElementById('mainholder').className = 'blur';
+	
+	document.getElementById('opencartwindow').style.display='block';
+	
+	document.getElementById('product').innerHTML = localStorage.getItem('product');
+	document.getElementById('size').innerHTML = localStorage.getItem('size');
+	document.getElementById('price').innerHTML = localStorage.getItem('price');
+	document.getElementById('howmany').innerHTML = localStorage.getItem('numberofproducts');
+	
+	var numberofproducts = localStorage.getItem('numberofproducts');
+	
+	var oldtotal = parseInt(document.getElementById('totalammount').innerHTML);
+	
+	var addtototal = parseInt(localStorage.getItem('price'));
+	
+	var currentotal = oldtotal + addtototal * numberofproducts;
+	
+	// alert(currentotal);
+	
+	document.getElementById('totalammount').innerHTML = currentotal;
+	document.getElementById('totalammount2').innerHTML = currentotal;
+	
+	var addedtocartnumber = document.getElementById('addedtocartnumber').innerHTML;
+	
+	scoreinbox1 = (addedtocartnumber*1+1); 
+	document.getElementById('addedtocartnumber').innerHTML=scoreinbox1;
+	
+	if(scoreinbox1 == 1){
+		
+	document.getElementById('product1').innerHTML = localStorage.getItem('product');
+	document.getElementById('size1').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price1').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity1').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+	
+	}
+	else if(scoreinbox1 == 2){
+		
+	document.getElementById('product2').innerHTML = localStorage.getItem('product');
+	document.getElementById('size2').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price2').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity2').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 3){
+		
+	document.getElementById('product3').innerHTML = localStorage.getItem('product');
+	document.getElementById('size3').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price3').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity3').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 4){
+		
+	document.getElementById('product4').innerHTML = localStorage.getItem('product');
+	document.getElementById('size4').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price4').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity4').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 5){
+		
+	document.getElementById('product5').innerHTML = localStorage.getItem('product');
+	document.getElementById('size5').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price5').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity5').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 6){
+		
+	document.getElementById('product6').innerHTML = localStorage.getItem('product');
+	document.getElementById('size6').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price6').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity6').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 7){
+		
+	document.getElementById('product7').innerHTML = localStorage.getItem('product');
+	document.getElementById('size7').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price7').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity7').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 8){
+		
+	document.getElementById('product8').innerHTML = localStorage.getItem('product');
+	document.getElementById('size8').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price8').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity8').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 9){
+		
+	document.getElementById('product9').innerHTML = localStorage.getItem('product');
+	document.getElementById('size9').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price9').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity9').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else if(scoreinbox1 == 10){
+		
+	document.getElementById('product10').innerHTML = localStorage.getItem('product');
+	document.getElementById('size10').innerHTML = localStorage.getItem('size')  + ' ML';
+	document.getElementById('price10').innerHTML = localStorage.getItem('price') + ' KES';
+	document.getElementById('quantity10').innerHTML = localStorage.getItem('numberofproducts') + 'x';
+
+	}
+	else {
+		alert('Maximum number of products reached. Please order now!');
+		document.getElementById('addedtocartnumber').innerHTML=10;
+		document.getElementById('continueshoppingbuttononorder').style.display='none';
+	}
+	
+}
+
+function closecartwindow() {
+	
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	document.getElementById('mainholder').className = 'lessblur';
+	
+	document.getElementById('opencartwindow').style.display='none';
+	
+	document.getElementById('continueshoppingbuttononorder').style.display='block';
+		
+}
+
+function openorderwindow() {
+	
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	document.getElementById('ordernowwindow').style.display='block';
+	document.getElementById('mainholder').style.display='none';
+	
+}
+function closeorderwindow() {
+	
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	
+	document.getElementById('ordernowwindow').style.display='none';
+	document.getElementById('opencartwindow').style.display='none';
+	
+	document.getElementById('mainholder').style.display='block';
+	
+	document.getElementById('mainholder').className = 'lessblur';
+	
+}
+
+$.ajaxSetup({
+    beforeSend:function(){
+        // show gif here, eg:
+        $("#loading").fadeIn();
+    },
+    complete:function(){
+        // hide gif here, eg:
+        $("#loading").fadeOut();
+    }
+});
+
+
+
+$( document ).ready(function() {
+
+window.plugin.notification.local.add({
+    id:         1,
+    message:    'We recieved your order! Thank you for chosing WHISKEY SUNDAYS',
+    title:      'Order Recieved',
+    autoCancel: true,
+    ongoing:    false
+});
+
+	
+	location.href = '#SPLASH';
+	
+	document.getElementById("customername").value = localStorage.getItem('customername');
+	document.getElementById("customeremail").value = localStorage.getItem('customeremail');
+	document.getElementById("customerphone").value = localStorage.getItem('customerphone');
+	document.getElementById("customerage").value = localStorage.getItem('customerage');
+	
+	document.getElementById("chooseareainnairobi").onchange = function() {
+     localStorage['chooseareainnairobi'] = document.getElementById("chooseareainnairobi").value;
+    }
+    window.onload= function(){
+        if(localStorage['chooseareainnairobi'])
+            document.getElementById("chooseareainnairobi").value = localStorage['chooseareainnairobi'];
+    }
+
+ //  $('#mainmenu').on('change', function() {
+ // alert( this.value ); // or $(this).val()
+ // loadthis = this.value;
+ // ajaxload();
+ //});
+	
+	$( "#page" ).load("start.html");
+	
+	
+	
+});
+
+function warning(){
+            if(true){
+                return "Do you want to start over? You will lose your shopping cart contents!";
+                
+            }
+        }
+// window.onbeforeunload = warning;
+
+function ajaxload() {
+$( "#page" ).load(loadthis+".html");
+}
+
+function proceedwithorder1() {
+	var currentotal = document.getElementById('totalammount2').innerHTML;
+	var requiredtotal = 1000;
+	navigator.geolocation.getCurrentPosition(disp);
+	
+	if (+currentotal < requiredtotal) {
+        alert("Sorry, minimum order price not reached! Order for 1000 KES and above and enjoy free delivery!");
+        return false;
+    }
+	else {
+	document.getElementById('proceedwithorder1').style.display='block';
+	document.getElementById('pagebg').style.backgroundColor="white";
+	document.getElementById('ordernowwindow').style.display='none';
+	document.getElementById('opencartwindow').style.display='none';
+	document.getElementById('page').style.display='none';
+	}
+}
+function proceedwithorderformsubmit() {
+	var $myForm = $('#proceedorderform1')
+	if (!$myForm[0].checkValidity()) {
+    $myForm.find(':submit').click()
+	}
+}
+
+function disp(pos) {
+   $('.lat-view').html(pos.coords.latitude);
+   $('.long-view').html(pos.coords.longitude);
+}
+
+function ajaxorderform() {
+	
+	localStorage.removeItem('product');
+	localStorage.removeItem('size');
+	localStorage.removeItem('price');
+	
+	var e = document.getElementById("chooseareainnairobi");
+	var locationinnairobi = e.options[e.selectedIndex].text;
+	
+	var customername = document.getElementById("customername").value;
+	var customeremail = document.getElementById("customeremail").value;
+	var customerphone = document.getElementById("customerphone").value;
+	var customerage = document.getElementById("customerage").value;
+	var customercomments = document.getElementById("customercomments").value;
+	var latview = document.getElementById("lat-view").innerHTML;
+	var longview = document.getElementById("long-view").innerHTML;
+	var total = document.getElementById('totalammount2').innerHTML;
+	
+	var totalusd =  total / 87;
+	
+	var totalusdrounded = Math.round(totalusd);
+
+	localStorage.setItem('customername',customername);
+	localStorage.setItem('customeremail',customeremail);
+	localStorage.setItem('customerphone',customerphone);
+	localStorage.setItem('customerage',customerage);
+	localStorage.setItem('customercomments',customercomments);
+	localStorage.setItem('latview',latview);
+	localStorage.setItem('longview',longview);
+	localStorage.setItem('locationinnairobi',locationinnairobi);
+	
+	localStorage.setItem('total',total);
+	localStorage.setItem('totalusd',totalusdrounded);
+	
+	var product1 = document.getElementById('product1').innerHTML;
+	var size1 = document.getElementById('size1').innerHTML;
+	var price1 = document.getElementById('price1').innerHTML;
+	var quantity1 = document.getElementById('quantity1').innerHTML;
+	
+	localStorage.setItem('product1',product1);
+	localStorage.setItem('size1',size1);
+	localStorage.setItem('price1',price1);
+	localStorage.setItem('quantity1',quantity1);
+	
+	var product2 = document.getElementById('product2').innerHTML;
+	var size2 = document.getElementById('size2').innerHTML;
+	var price2 = document.getElementById('price2').innerHTML;
+	var quantity2 = document.getElementById('quantity2').innerHTML;
+	
+	localStorage.setItem('product2',product2);
+	localStorage.setItem('size2',size2);
+	localStorage.setItem('price2',price2);
+	localStorage.setItem('quantity2',quantity2);
+	
+	var product3 = document.getElementById('product3').innerHTML;
+	var size3 = document.getElementById('size3').innerHTML;
+	var price3 = document.getElementById('price3').innerHTML;
+	var quantity3 = document.getElementById('quantity3').innerHTML;
+	
+	localStorage.setItem('product3',product3);
+	localStorage.setItem('size3',size3);
+	localStorage.setItem('price3',price3);
+	localStorage.setItem('quantity3',quantity3);
+	
+	var product4 = document.getElementById('product4').innerHTML;
+	var size4 = document.getElementById('size4').innerHTML;
+	var price4 = document.getElementById('price4').innerHTML;
+	var quantity4 = document.getElementById('quantity4').innerHTML;
+	
+	localStorage.setItem('product4',product4);
+	localStorage.setItem('size4',size4);
+	localStorage.setItem('price4',price4);
+	localStorage.setItem('quantity4',quantity4);
+	
+	var product5 = document.getElementById('product5').innerHTML;
+	var size5 = document.getElementById('size5').innerHTML;
+	var price5 = document.getElementById('price5').innerHTML;
+	var quantity5 = document.getElementById('quantity5').innerHTML;
+
+	localStorage.setItem('product5',product5);
+	localStorage.setItem('size5',size5);
+	localStorage.setItem('price5',price5);
+	localStorage.setItem('quantity5',quantity5);
+	
+	var product6 = document.getElementById('product6').innerHTML;
+	var size6 = document.getElementById('size6').innerHTML;
+	var price6 = document.getElementById('price6').innerHTML;
+	var quantity6 = document.getElementById('quantity6').innerHTML;
+
+	localStorage.setItem('product6',product6);
+	localStorage.setItem('size6',size6);
+	localStorage.setItem('price6',price6);
+	localStorage.setItem('quantity6',quantity6);
+	
+	var product7 = document.getElementById('product7').innerHTML;
+	var size7 = document.getElementById('size7').innerHTML;
+	var price7 = document.getElementById('price7').innerHTML;
+	var quantity7 = document.getElementById('quantity7').innerHTML;
+
+	localStorage.setItem('product7',product7);
+	localStorage.setItem('size7',size7);
+	localStorage.setItem('price7',price7);
+	localStorage.setItem('quantity7',quantity7);
+	
+	var product8 = document.getElementById('product8').innerHTML;
+	var size8 = document.getElementById('size8').innerHTML;
+	var price8 = document.getElementById('price8').innerHTML;
+	var quantity8 = document.getElementById('quantity8').innerHTML;
+
+	localStorage.setItem('product8',product8);
+	localStorage.setItem('size8',size8);
+	localStorage.setItem('price8',price8);
+	localStorage.setItem('quantity8',quantity8);
+	
+	var product9 = document.getElementById('product9').innerHTML;
+	var size9 = document.getElementById('size9').innerHTML;
+	var price9 = document.getElementById('price9').innerHTML;
+	var quantity9 = document.getElementById('quantity9').innerHTML;
+	
+	localStorage.setItem('product9',product9);
+	localStorage.setItem('size9',size9);
+	localStorage.setItem('price9',price9);
+	localStorage.setItem('quantity9',quantity9);
+	
+	var product10 = document.getElementById('product10').innerHTML;
+	var size10 = document.getElementById('size10').innerHTML;
+	var price10 = document.getElementById('price10').innerHTML;
+	var quantity10 = document.getElementById('quantity10').innerHTML;
+	
+	localStorage.setItem('product10',product10);
+	localStorage.setItem('size10',size10);
+	localStorage.setItem('price10',price10);
+	localStorage.setItem('quantity10',quantity10);
+	
+	// alert('Data sent to Server:');
+	// alert(locationinnairobi);
+	// alert(customername);
+	// alert(customeremail);
+	// alert(customerphone);
+	// alert(customerage);
+	// alert(latview);
+	// alert(longview);
+	
+	document.getElementById('choosepaymentoptions').style.display='block';
+	document.getElementById('proceedwithorder1').style.display='none';
+}
+function paystart() {
+	var payoption = localStorage.getItem('payoption');
+	
+	var customername = localStorage.getItem('customername');
+	var customeremail = localStorage.getItem('customeremail');
+	var customerphone = localStorage.getItem('customerphone');
+	var customerage = localStorage.getItem('customerage');
+	var locationinnairobi = localStorage.getItem('locationinnairobi');
+	var latview = localStorage.getItem('latview');
+	var longview = localStorage.getItem('longview');
+	var total = localStorage.getItem('total');
+	var totalusd = localStorage.getItem('totalusd');
+	
+	var product1 = localStorage.getItem('product1');
+	var size1 = localStorage.getItem('size1');
+	var price1 = localStorage.getItem('price1');
+	var quantity1 = localStorage.getItem('quantity1');
+	
+	var product2 = localStorage.getItem('product2');
+	var size2 = localStorage.getItem('size2');
+	var price2 = localStorage.getItem('price2');
+	var quantity2 = localStorage.getItem('quantity2');
+	
+	var product3 = localStorage.getItem('product3');
+	var size3 = localStorage.getItem('size3');
+	var price3 = localStorage.getItem('price3');
+	var quantity3 = localStorage.getItem('quantity3');
+	
+	var product4 = localStorage.getItem('product4');
+	var size4 = localStorage.getItem('size4');
+	var price4 = localStorage.getItem('price4');
+	var quantity4 = localStorage.getItem('quantity4');
+	
+	var product5 = localStorage.getItem('product5');
+	var size5 = localStorage.getItem('size5');
+	var price5 = localStorage.getItem('price5');
+	var quantity5 = localStorage.getItem('quantity5');
+	
+	var product6 = localStorage.getItem('product6');
+	var size6 = localStorage.getItem('size6');
+	var price6 = localStorage.getItem('price6');
+	var quantity6 = localStorage.getItem('quantity6');
+	
+	var product7 = localStorage.getItem('product7');
+	var size7 = localStorage.getItem('size7');
+	var price7 = localStorage.getItem('price7');
+	var quantity7 = localStorage.getItem('quantity7');
+	
+	var product8 = localStorage.getItem('product8');
+	var size8 = localStorage.getItem('size8');
+	var price8 = localStorage.getItem('price8');
+	var quantity8 = localStorage.getItem('quantity8');
+	
+	var product9 = localStorage.getItem('product9');
+	var size9 = localStorage.getItem('size9');
+	var price9 = localStorage.getItem('price9');
+	var quantity9 = localStorage.getItem('quantity9');
+	
+	var product10 = localStorage.getItem('product10');
+	var size10 = localStorage.getItem('size10');
+	var price10 = localStorage.getItem('price10');
+	var quantity10 = localStorage.getItem('quantity10');
+	
+	if  (payoption == 'paypal') {
+	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&paytype=PayPal';
+	}
+	if  (payoption == 'pesapal') {
+	window.location.href = 'http://enunua.com/whiskysundays/gopesapal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&paytype=PesaPal';
+	}
+	lpushorder();
+}
+</script>
+
+</head>
+
+<body id="pagebg" onLoad="dothisonload();">
+
+<div id="tnc" class="animated fadeIn">
+<iframe src="tnc.html" style="width:100%; height:300px;" frameborder="0"></iframe>
+<div class="opencartwindowbutton2" onClick="document.getElementById('tnc').style.display='none';">Close</div>
+</div>
+
+<div id="bottommenu">
+</div>
+
+<div id="splashstart" style="text-align:center; position:absolute; width:100%; height:100%; background-image: url(barbg.png); background-repeat: no-repeat; background-position: center top; background-size: 100% 100% !important; background-color:#000; z-index:1000;">
+<br><br><br><br>
+<img src="whiskey-sundays-logo-potrait.png" class="animated fadeIn" width="366" style="margin-left:-10px; -webkit-animation-delay: 2s;">
+<div id="warning" class="animated fadeIn" style="-webkit-animation-delay: 2s;" onClick="document.getElementById('tnc').style.display='block';">FOR INFORMATION ABOUT WHISKEY SUNDAYS LIMITED, CLICK HERE. PLEASE ENJOY ALCOHOL RESPONSIBLY.
+USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHOL BEVERAGE IS LAWFUL, OF PERSONS WHO ARE LAWFULLY PERMITTED TO CONSUME ALCOHOLIC BEVERAGES.
+<span style="text-decoration:underline;">BY USING THIS APP YOU AGREE TO OUR TERMS AND CONDITIONS AND PRIVACY POLICY.</span>.</div>
+<div id="selectdrink" class="animated fadeIn" onclick="
+document.getElementById('splashstart').className = 'animated fadeOut';setTimeout(function(){
+document.getElementById('splashstart').style.display='none';},1000);
+document.getElementById('page').style.display='block';location.href = '#START';
+" style="-webkit-animation-delay: 2s;">Menu</div>
+
+<div id="splashsocial" class="animated bounceIn" style="margin-top:20px;  -webkit-animation-delay: 2s;">
+  <img src="social_fb.png" width="44" height="44">
+  <img src="social_gplus.png" width="43" height="44">
+  <img src="social_instagram.png" width="44" height="44">
+  <img src="social_twitter.png" width="43" height="44">
+</div>
+
+</div>
+
+<div id="choosepaymentoptions" class="animated fadeIn">
+<h1>Choose Payment Option</h1>
+
+<img class="paymentprovider" onClick="localStorage.setItem('payoption','pesapal');paystart();" src="pesapal-logo.png"><br>
+<img class="paymentprovider" onClick="localStorage.setItem('payoption','pesapal');paystart();" src="pesapaloptions.jpg"><br><br>
+<img class="paymentprovider" onClick="localStorage.setItem('payoption','paypal');paystart();" src="paypal-logo.png"><br>
+<img class="paymentprovider" onClick="localStorage.setItem('payoption','paypal');paystart();" src="visamastercard.png"><br>
+
+</div>
+
+<div id="devoptions">
+</div>
+
+<div id="loading">
+<div id="spinner"></div>
+</div>
+
+<div id="proceedwithorder1" class="animated fadeIn">
+<center>
+<div id="lat-view" style="display:none" class="lat-view"></div>
+<div id="long-view" style="display:none" class="long-view"></div>
+<h1>Order Details</h1>
+
+<form id="proceedorderform1" action="javascript:ajaxorderform();">
+
+<input id="customername" required type="text" placeholder="Name"><br>
+
+<input id="customeremail" required type="email" placeholder="E-Mail"><br>
+
+<input id="customerphone" required type="tel" placeholder="Phone"><br>
+
+<input id="customerage" required min="18" type="number" placeholder="Age">
+
+<div class="notice">
+WHISKEY SUNDAYS is currently only available in Nairobi. We are adding more locations soon.
+</div>
+
+<select id="chooseareainnairobi">
+  <option value="Other">Other (Not in list)</option>
+  <option value="CBD">CBD (Town)</option>
+  <option value="Dagoretti">Dagoretti</option>
+  <option value="Donholm">Donholm</option>
+  <option value="Eastleigh">Eastleigh </option>
+  <option value="Embakasi">Embakasi </option>
+  <option value="Gigiri">Gigiri</option>
+  <option value="Highridge">Highridge</option>
+  <option value="Highrise">Highrise</option>
+  <option value="Hurlingham">Hurlingham</option>
+  <option value="Industrial Area">Industrial Area</option>
+  <option value="Jamhuri">Jamhuri</option>
+  <option value="Karen">Karen</option>
+  <option value="Karen Hardy">Karen Hardy</option>
+  <option value="Karen Miotoni">Karen Miotoni</option>
+  <option value="Karen Plains">Karen Plains</option>
+  <option value="Karen Windy Ridge">Karen Windy Ridge</option>
+  <option value="Kiambu">Kiambu</option>
+  <option value="Kassarani">Kassarani</option>
+  <option value="Kileleshwa">Kileleshwa</option>
+  <option value="Kilimani">Kilimani</option>
+  <option value="Kitusuru">Kitusuru</option>
+  <option value="Langata">Langata</option>
+  <option value="Lavington">Lavington</option>
+  <option value="Loresho">Loresho</option>
+  <option value="Lower Kabete">Lower Kabete</option>
+  <option value="Mombasa Road">Mombasa Road</option>
+  <option value="Muthaiga">Muthaiga</option>
+  <option value="New Muthaiga">New Muthaiga</option>
+  <option value="Old Muthaiga">Old Muthaiga</option>
+  <option value="Old Muthaiga">Sameer</option>
+  <option value="Old Muthaiga">Mugoya</option>
+  <option value="Nairobi West">Nairobi West</option>
+  <option value="Ngei">Ngei</option>
+  <option value="Ngong Road">Ngong Road</option>
+  <option value="Ngumo">Ngumo</option>
+  <option value="Nyari">Nyari</option>
+  <option value="Pangani">Pangani</option>
+  <option value="Parklands">Parklands</option>
+  <option value="Roselyn">Roselyn</option>
+  <option value="Runda">Runda</option>
+  <option value="South B">South B</option>
+  <option value="South C">South C</option>
+  <option value="Spring Valley">Spring Valley</option>
+  <option value="Thika Road">Thika Road</option>
+  <option value="Thome">Thome</option>
+  <option value="Upper Hill">Upper Hill</option>
+  <option value="Valley Arcade">Valley Arcade</option>
+  <option value="Westlands">Westlands</option>
+  <option value="Windsor">Windsor</option>
+  <option value="Woodley">Woodley</option>
+</select>
+
+<input id="customercomments" type="text" placeholder="Comments (Optional)">
+
+<div style="clear:both"></div>
+
+<table id="tandc" align="center">
+<tr><td align="center" style="width:5% !important;" >
+
+    <input style="width:20px !important; height:20px !important; margin-top:10px;" required name="tandc" type="checkbox" value="tandc">
+
+</td>
+<td align="center">
+
+I have read and agreed to the <span onClick="document.getElementById('tnc').style.display='block';" style="text-decoration:underline;">Terms & Conditions</span>
+ 
+</td></tr></table>
+
+<button class="opencartwindowbutton"  onClick="proceedwithorderformsubmit();">Choose Payment Method</button>
+<input style="display:none" id="proceedorderform1submit" name="Submit" type="submit" value="Submit">
+
+</form>
+
+<div style="clear:both"></div>
+
+</center>
+</div>
+
+<div id="ordernowwindow" class="animated gogo">
+<div class="titleincartwindow">Shopping Cart Summary:</div>
+
+<div id="summaryboxes">
+
+<table><tr><td>
+
+<div class="animated fadeIn andel1" id="product1"></div>
+<div class="animated fadeIn andel1"><span id="size1"></span> </div>
+<div class="animated fadeIn andel1"><span id="price1"></span> </div>
+<div class="animated fadeIn andel1" id="quantity1"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel2" id="product2"></div>
+<div class="animated fadeIn andel2"><span id="size2"></span> </div>
+<div class="animated fadeIn andel2"><span id="price2"></span> </div>
+<div class="animated fadeIn andel1" id="quantity2"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel3" id="product3"></div>
+<div class="animated fadeIn andel3"><span id="size3"></span> </div>
+<div class="animated fadeIn andel3"><span id="price3"></span> </div>
+<div class="animated fadeIn andel1" id="quantity3"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel4" id="product4"></div>
+<div class="animated fadeIn andel4"><span id="size4"></span> </div>
+<div class="animated fadeIn andel4"><span id="price4"></span> </div>
+<div class="animated fadeIn andel1" id="quantity4"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel5" id="product5"></div>
+<div class="animated fadeIn andel5"><span id="size5"></span> </div>
+<div class="animated fadeIn andel5"><span id="price5"></span> </div>
+<div class="animated fadeIn andel1" id="quantity5"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel6" id="product6"></div>
+<div class="animated fadeIn andel6"><span id="size6"></span> </div>
+<div class="animated fadeIn andel6"><span id="price6"></span> </div>
+<div class="animated fadeIn andel1" id="quantity6"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel7" id="product7"></div>
+<div class="animated fadeIn andel7"><span id="size7"></span> </div>
+<div class="animated fadeIn andel7"><span id="price7"></span> </div>
+<div class="animated fadeIn andel1" id="quantity7"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel8" id="product8"></div>
+<div class="animated fadeIn andel8"><span id="size8"></span> </div>
+<div class="animated fadeIn andel8"><span id="price8"></span> </div>
+<div class="animated fadeIn andel1" id="quantity8"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel9" id="product9"></div>
+<div class="animated fadeIn andel9"><span id="size9"></span> </div>
+<div class="animated fadeIn andel9"><span id="price9"></span> </div>
+<div class="animated fadeIn andel1" id="quantity9"></div>
+
+</td></tr></table>
+<table><tr><td>
+
+<div class="animated fadeIn andel10" id="product10"></div>
+<div class="animated fadeIn andel10"><span id="size10"></span> </div>
+<div class="animated fadeIn andel10"><span id="price10"></span> </div>
+<div class="animated fadeIn andel1" id="quantity10"></div>
+
+</td></tr></table>
+
+
+</div>
+<div style="clear:both"></div>
+
+<div id="totalorder">Total: <span id="totalammount2">0</span> KES</div>
+
+<div style="clear:both"></div>
+
+<div class="opencartwindowbutton" onClick="proceedwithorder1();">Checkout</div>
+
+<div class="opencartwindowbutton2" onClick="clearcheckout();">Clear Shopping Cart</div>
+
+<div class="opencartwindowbutton2" onClick="closeorderwindow();">Continue Shopping</div>
+
+<div style="clear:both"></div>
+
+<br><br><br><br>
+
+</div>
+
+<div id="opencartwindow" class="animated gogo">
+<div class="titleincartwindow">Product added:</div>
+<div class="listallproducts listproduct" id="product"></div>
+<div class="listproduct"><span id="size"></span> ML</div>
+<div class="listproduct"><span id="price"></span> KES</div>
+<div class="listproduct"><span id="howmany"></span>x</div>
+<br>
+<div class="titleincartwindow">Products in Cart: <span id="addedtocartnumber">0</span></div>
+
+<div id="summarycartwindow">Total: <span id="totalammount">0</span> KES</div>
+
+<div style="clear:both"></div>
+
+<div class="notice2">Free delivery on all orders!</div>
+
+<div class="opencartwindowbutton" onClick="openorderwindow();">Order now!</div>
+<div id="continueshoppingbuttononorder" class="opencartwindowbutton" onClick="closecartwindow();">Continue Shopping</div>
+</div>
+
+<div id="mainholder">
+
+<div id="navigation">
+<img src="logoinapp.png" onClick="$( '#mainmenu' ).val('start');location.href = '#START';">
+<select id="mainmenu" onchange="optionCheck()">
+<option value="start">Drinks selection:</option>
+<option value="p1">IMPORTED WHISKIES</option>
+<option value="p2">SINGLEMALT WHISKIES</option>
+<option value="p3">COGNACS/BRANDY</option>
+<option value="p4">WHITE RUM &amp; BLACK RUM</option>
+<option value="p5">TEQUILLAS/SHOOTERS</option>
+<option value="p6">APPERTIFFS/BITTERS</option>
+<option value="p7">WINES</option>
+<option value="p8">CHAMPAGNE</option>
+<option value="p9">GINS</option>
+<option value="p10">VODKAS</option>
+<option value="p11">LOCAL CANES/BRANDY/WHISKIES</option>
+<option value="p12">ENERGY DRINKS</option>
+</select>
+
+<script type="text/javascript">
+    function optionCheck(){
+		
+		var option = document.getElementById("mainmenu").value;
+				
+		if(option == "start"){
+           location.href = '#START';
+        }
+        if(option == "p1"){
+            location.href = '#IMPORTEDWHISKIES';
+        }
+		if(option == "p2"){
+            location.href = '#SINGLEMALTWHISKIES';
+        }
+		if(option == "p3"){
+            location.href = '#COGNACS';
+        }
+		if(option == "p4"){
+            location.href = '#RUM';
+        }
+		if(option == "p5"){
+            location.href = '#TEQUILLAS';
+        }
+		if(option == "p6"){
+            location.href = '#APPERTIFFS';
+        }
+		if(option == "p7"){
+            location.href = '#WINES';
+        }
+		if(option == "p8"){
+            location.href = '#CHAMPAGNE';
+        }
+		if(option == "p9"){
+            location.href = '#GINS';
+        }
+		if(option == "p10"){
+            location.href = '#VODKAS';
+        }
+		if(option == "p11"){
+            location.href = '#LOCALCANES';
+        }
+		if(option == "p12"){
+            location.href = '#ENERGYDRINKS';
+        }
+
+		
+    }
+</script>
+</div>
+
+
+
+<div id="page" style="display:none">
+</div>
+
+</div>
+
+<script type="text/javascript">
+var hash = false; 
+checkHash();
+
+function checkHash(){ 
+    if(window.location.hash != hash) { 
+        hash = window.location.hash; 
+        processHash(hash); 
+    } t=setTimeout("checkHash()",200); 
+}
+
+function processHash(hash){
+    // alert(hash);
+	if (hash == "#START") {
+		$( '#page' ).load('start.html');
+		$( '#mainmenu' ).val('start');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#SPLASH") {
+		document.getElementById('splashstart').style.display='block';
+		document.getElementById('splashstart').className = 'animated fadeIn';
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#IMPORTEDWHISKIES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=1');
+		$( '#mainmenu' ).val('p1');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#SINGLEMALTWHISKIES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=2');
+		$( '#mainmenu' ).val('p2');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#COGNACS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=3');
+		$( '#mainmenu' ).val('p3');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#RUM") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=4');
+		$( '#mainmenu' ).val('p4');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#TEQUILLAS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=5');
+		$( '#mainmenu' ).val('p5');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#APPERTIFFS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=6');
+		$( '#mainmenu' ).val('p6');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+		else if (hash == "#WINES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=7');
+		$( '#mainmenu' ).val('p7');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#CHAMPAGNE") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=8');
+		$( '#mainmenu' ).val('p8');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#GINS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=9');
+		$( '#mainmenu' ).val('p9');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#VODKAS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=10');
+		$( '#mainmenu' ).val('p10');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#LOCALCANES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=11');
+		$( '#mainmenu' ).val('p11');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#ENERGYDRINKS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=12');
+		$( '#mainmenu' ).val('p12');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+}
+
+
+</script>
+
+</body>
+</html>

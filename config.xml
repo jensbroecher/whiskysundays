@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.alcodrop247.app"
+        versionCode = "4" 
+        version     = "4.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>AlcoDrop</name>
+
+    <description>
+       You Order. We Deliver. You Enjoy!
+    </description>
+
+    <author href="https://www.alcodrop247.com" email="info@alcodrop247.com">
+        AlcoDrop Team
+    </author>
+	
+	<icon src="icon.png" />
+		
+	<preference name="android-minSdkVersion" value="9" /> 
+	<preference name="android-targetSdkVersion" value="19" />
+	
+	<!-- Core plugins -->
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-motion" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.file" />
+    <gap:plugin name="org.apache.cordova.file-transfer" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.media" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+	
+	<gap:plugin name="com.parse.cordova.core.pushplugin" />
+	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
+	<gap:plugin name="com.phonegap.plugins.barcodescanner" />
+	<gap:plugin name="nl.x-services.plugins.socialsharing" />
+	
+	<access origin="*"/> <!-- allow all pages, use for development -->
+	<access origin="*.pushwoosh.com"/> <!-- allow pushwoosh service -->
+
+</widget>
