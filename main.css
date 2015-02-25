@@ -73,7 +73,7 @@ body {
 }
 
 .huge{
-	font-size: 190%;
+	font-size: 120%;
 	margin-top: 40px;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 .tiny{
-	font-size:60%;
+	font-size: 50%;
 }
 
 .lightfont{
