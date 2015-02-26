@@ -39,7 +39,7 @@ window.plugin.notification.local.add({
 
 function dothisonload(){
 	
-	lpush();
+	
 	
 	// alert('wurdegeladen');
 	
@@ -376,6 +376,8 @@ window.plugin.notification.local.add({
 	document.getElementById("customerphone").value = localStorage.getItem('customerphone');
 	document.getElementById("customerage").value = localStorage.getItem('customerage');
 	
+	alert(localStorage.getItem('customername'));
+	
 	document.getElementById("chooseareainnairobi").onchange = function() {
      localStorage['chooseareainnairobi'] = document.getElementById("chooseareainnairobi").value;
     }
@@ -668,8 +670,7 @@ function paystart() {
 <div id="bottommenu">
 </div>
 
-<div id="splashstart" style="text-align:center; position:absolute; width:100%; height:100%; background-image: url(bgwhiskey.png); background-repeat: no-repeat; background-position: center top; background-size: cover !important; background-color:#000; z-index:1000;">
-<br><br><br><br>
+<div id="splashstart" style="text-align:center; position:absolute; width:100%; height:100%; background-image: url(bgwhiskey.png); background-repeat: no-repeat; background-position: center top; background-size: cover !important; background-color:#000; z-index:1000;"><br>
 <img src="whiskey-sundays-logo-potrait.png" class="animated fadeIn" width="270" style="-webkit-animation-delay: 0s;">
 <div id="agecheck">
 
@@ -859,6 +860,7 @@ document.getElementById('splashstart').className = 'animated fadeOut';setTimeout
 document.getElementById('splashstart').style.display='none';},1000);
 document.getElementById('page').style.display='block';location.href = '#START';
 localStorage.setItem("agecheck", "yes");
+lpush();
 }
 else {
     alert("Sorry, you are below 18 years old.");
@@ -1269,82 +1271,82 @@ function processHash(hash){
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#WHISKIES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=1');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=1');
 		$( '#mainmenu' ).val('p1');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#COGNACS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=3');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=3');
 		$( '#mainmenu' ).val('p2');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#RUM") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=4');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=4');
 		$( '#mainmenu' ).val('p3');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#TEQUILLAS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=5');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=5');
 		$( '#mainmenu' ).val('p5');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#APPERTIFFS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=6');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=6');
 		$( '#mainmenu' ).val('p6');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 		else if (hash == "#LIQEURS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=13');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=13');
 		$( '#mainmenu' ).val('p7');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#WINES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=7');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=7');
 		$( '#mainmenu' ).val('p8');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 		else if (hash == "#CHAMPAGNE") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=8');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=8');
 		$( '#mainmenu' ).val('p9');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#GINS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=9');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=9');
 		$( '#mainmenu' ).val('p10');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#VODKAS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=10');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=10');
 		$( '#mainmenu' ).val('p11');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#MIXERS/SNACKS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=12');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=12');
 		$( '#mainmenu' ).val('p12');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#CIGARS") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=14');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=14');
 		$( '#mainmenu' ).val('p13');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#CIGARETTES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=15');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=15');
 		$( '#mainmenu' ).val('p14');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#SHISHA") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=16');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=16');
 		$( '#mainmenu' ).val('p15');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#APPAREL") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=17');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=17');
 		$( '#mainmenu' ).val('p16');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#BAREQUIPMENT") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=18');
+		$( '#page' ).load('http://enunua.com/whiskysundays/load_mobile.php?categoryid=18');
 		$( '#mainmenu' ).val('p17');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
