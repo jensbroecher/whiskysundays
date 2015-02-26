@@ -3366,3 +3366,10 @@ transform-style: preserve-3d;
 	-o-animation-duration: .75s;
 	animation-duration: .75s
 }
+#featuredbrands {
+	color: #FFF;
+	background-color: #999;
+	text-align: center;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
