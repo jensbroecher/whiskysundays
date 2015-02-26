@@ -913,6 +913,8 @@ USE OF THIS SITE IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOH
 
 <input id="customerage" required min="18" type="number" placeholder="Age">
 
+<input id="customercomments" type="text" placeholder="Address / Comments">
+
 <div class="notice">
 WHISKY SUNDAYS is currently only available in Nairobi. We are adding more locations soon.
 </div>
@@ -970,8 +972,6 @@ WHISKY SUNDAYS is currently only available in Nairobi. We are adding more locati
   <option value="Windsor">Windsor</option>
   <option value="Woodley">Woodley</option>
 </select>
-
-<input id="customercomments" type="text" placeholder="Comments (Optional)">
 
 <div style="clear:both"></div>
 
@@ -1127,19 +1127,26 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 <div id="navigation">
 <img src="logoinapp.png" onClick="$( '#mainmenu' ).val('start');location.href = '#START';">
 <select id="mainmenu" onchange="optionCheck()">
-<option value="start">Drinks selection:</option>
-<option value="p1">IMPORTED WHISKIES</option>
-<option value="p2">SINGLEMALT WHISKIES</option>
-<option value="p3">COGNACS/BRANDY</option>
-<option value="p4">WHITE RUM &amp; BLACK RUM</option>
+<option value="drinks">—— DRINKS —— </option>
+<option value="p1">WHISKIES</option>
+<option value="p2">COGNACS/BRANDY</option>
+<option value="p3">RUM</option>
 <option value="p5">TEQUILLAS/SHOOTERS</option>
 <option value="p6">APPERTIFFS/BITTERS</option>
-<option value="p7">WINES</option>
-<option value="p8">CHAMPAGNE</option>
-<option value="p9">GINS</option>
-<option value="p10">VODKAS</option>
-<option value="p11">LOCAL CANES/BRANDY/WHISKIES</option>
-<option value="p12">ENERGY DRINKS</option>
+<option value="p7">LIQEURS</option>
+<option value="p8">WINES</option>
+<option value="p9">CHAMPAGNE</option>
+<option value="p10">GINS</option>
+<option value="p11">VODKAS</option>
+<option value="p12">MIXERS/SNACKS</option>
+<option value="tobacco">—— TOBACCO ——</option>
+<option value="p13">CIGARS</option>
+<option value="p14">CIGARETTES</option>
+<option value="p15">SHISHA</option>
+<option value="accessories">—— ACCESSORIES ——</option>
+<option value="p16">APPAREL</option>
+<option value="p17">BAR EQUIPMENT</option>
+
 </select>
 
 <script type="text/javascript">
@@ -1150,14 +1157,23 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 		if(option == "start"){
            location.href = '#START';
         }
+		if(option == "drinks"){
+           location.href = '#DRINKS';
+        }
+		if(option == "tobacco"){
+           location.href = '#TOBACCO';
+        }
+		if(option == "accessories"){
+           location.href = '#ACCESSORIES';
+        }
         if(option == "p1"){
-            location.href = '#IMPORTEDWHISKIES';
+            location.href = '#WHISKIES';
         }
 		if(option == "p2"){
-            location.href = '#SINGLEMALTWHISKIES';
+            location.href = '#COGNACS';
         }
 		if(option == "p3"){
-            location.href = '#COGNACS';
+            location.href = '#RUM';
         }
 		if(option == "p4"){
             location.href = '#RUM';
@@ -1169,22 +1185,37 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
             location.href = '#APPERTIFFS';
         }
 		if(option == "p7"){
-            location.href = '#WINES';
+            location.href = '#LIQEURS';
         }
 		if(option == "p8"){
-            location.href = '#CHAMPAGNE';
+            location.href = '#WINES';
         }
 		if(option == "p9"){
-            location.href = '#GINS';
+            location.href = '#CHAMPAGNE';
         }
 		if(option == "p10"){
-            location.href = '#VODKAS';
+            location.href = '#GINS';
         }
 		if(option == "p11"){
-            location.href = '#LOCALCANES';
+            location.href = '#VODKAS';
         }
 		if(option == "p12"){
-            location.href = '#ENERGYDRINKS';
+            location.href = '#MIXERS/SNACKS';
+        }
+		if(option == "p13"){
+            location.href = '#CIGARS';
+        }
+		if(option == "p14"){
+            location.href = '#CIGARETTES';
+        }
+		if(option == "p15"){
+            location.href = '#SHISHA';
+        }
+		if(option == "p16"){
+            location.href = '#APPAREL';
+        }
+		if(option == "p17"){
+            location.href = '#BAREQUIPMENT';
         }
 
 		
@@ -1222,24 +1253,34 @@ function processHash(hash){
 		document.getElementById('splashstart').className = 'animated fadeIn';
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
-	else if (hash == "#IMPORTEDWHISKIES") {
+	else if (hash == "#DRINKS") {
+		$( '#page' ).load('drinks.html');
+		$( '#mainmenu' ).val('drinks');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#TOBACCO") {
+		$( '#page' ).load('tobacco.html');
+		$( '#mainmenu' ).val('tobacco');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#ACCESSORIES") {
+		$( '#page' ).load('accessories.html');
+		$( '#mainmenu' ).val('accessories');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#WHISKIES") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=1');
 		$( '#mainmenu' ).val('p1');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
-	else if (hash == "#SINGLEMALTWHISKIES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=2');
-		$( '#mainmenu' ).val('p2');
-		$("html, body").animate({ scrollTop: 0 }, "slow");
-	}
 	else if (hash == "#COGNACS") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=3');
-		$( '#mainmenu' ).val('p3');
+		$( '#mainmenu' ).val('p2');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#RUM") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=4');
-		$( '#mainmenu' ).val('p4');
+		$( '#mainmenu' ).val('p3');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#TEQUILLAS") {
@@ -1252,34 +1293,59 @@ function processHash(hash){
 		$( '#mainmenu' ).val('p6');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
-		else if (hash == "#WINES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=7');
+		else if (hash == "#LIQEURS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=13');
 		$( '#mainmenu' ).val('p7');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
-	else if (hash == "#CHAMPAGNE") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=8');
+	else if (hash == "#WINES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=7');
 		$( '#mainmenu' ).val('p8');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+		else if (hash == "#CHAMPAGNE") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=8');
+		$( '#mainmenu' ).val('p9');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#GINS") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=9');
-		$( '#mainmenu' ).val('p9');
+		$( '#mainmenu' ).val('p10');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	else if (hash == "#VODKAS") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=10');
-		$( '#mainmenu' ).val('p10');
-		$("html, body").animate({ scrollTop: 0 }, "slow");
-	}
-	else if (hash == "#LOCALCANES") {
-		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=11');
 		$( '#mainmenu' ).val('p11');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
-	else if (hash == "#ENERGYDRINKS") {
+	else if (hash == "#MIXERS/SNACKS") {
 		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=12');
 		$( '#mainmenu' ).val('p12');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#CIGARS") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=14');
+		$( '#mainmenu' ).val('p13');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#CIGARETTES") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=15');
+		$( '#mainmenu' ).val('p14');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#SHISHA") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=16');
+		$( '#mainmenu' ).val('p15');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#APPAREL") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=17');
+		$( '#mainmenu' ).val('p16');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	}
+	else if (hash == "#BAREQUIPMENT") {
+		$( '#page' ).load('http://enunua.com/whiskysundays/load.php?categoryid=18');
+		$( '#mainmenu' ).val('p17');
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 }
