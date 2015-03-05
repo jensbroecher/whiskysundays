@@ -1,3 +1,67 @@
-<link href="animate.min.css" rel="stylesheet" type="text/css">
 <br><br><br>
 <div id="featuredbrands">Featured Brands</div>
+
+<link rel="stylesheet" type="text/css" href="swipe.css" />
+<script type="text/javascript" src="swipe.js"></script>
+
+</head>
+<body>
+
+<div id="ibox7" class="info swipegallery animated fadeInDownBig">
+<div id="slider" class="swipe">
+
+<ul>
+<li><img src="featured/p1.jpg"></li>
+<li><img src="featured/p2.jpg"></li>
+<li><img src="featured/p3.jpg"></li>
+<li><img src="featured/p4.jpg"></li>
+<li><img src="featured/p5.jpg"></li>
+</ul>
+
+<span id="position">
+
+<em>&#9679;</em><em>&#9679;</em><em>&#9679;</em>
+
+</span>
+
+</div></div>
+
+
+<script>
+
+var slider = new Swipe(document.getElementById('slider'), {
+											    
+      callback: function(e, pos) {
+        
+        var i = bullets.length;
+        while (i--) {
+          bullets[i].className = ' ';
+        }
+        bullets[pos].className = 'on';
+
+      }
+	 
+    }),
+
+    bullets = document.getElementById('position').getElementsByTagName('em');
+
+function setTab(elem) {
+  for (var i = 0; i < selectors.length; i++) {
+    selectors[i].className = selectors[i].className.replace('on',' ');
+  }
+  elem.className += ' on';
+}
+
+var element = document.getElementById('position').getElementsByTagName('em')[0];  
+if(element) //lets sanitize this, shall we  
+{  
+element.setAttribute('class', 'on'); //other browsers
+}
+
+</script>
+
+<style type="text/css">
+.swipe img {
+width:100%;
+}
+</style>
