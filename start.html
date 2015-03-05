@@ -1,5 +1,25 @@
+<style type="text/css">
+#startcategories .startcategory {
+	background-color: #FFF;
+	height: 120px;
+	width: 100%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.featuredheadline {
+	font-size: 14px;
+	color: #000;
+	background-color: #FFF;
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+</style>
 <br><br><br>
-<div id="featuredbrands">Featured Brands</div>
+<div class="featuredheadline">Featured Brands</div>
 
 <link rel="stylesheet" type="text/css" href="swipe.css" />
 <script type="text/javascript" src="swipe.js"></script>
@@ -33,10 +53,12 @@
 
 </div></div>
 
+<div class="featuredheadline">Featured Brands</div>
+
 <div id="startcategories">
-<div class="startcategory"></div>
-<div class="startcategory"></div>
-<div class="startcategory"></div>
+<div class="startcategory" onclick="$('#page').load('drinks.html',function(responseTxt,statusTxt,xhr){});location.href = '#DRINKS';"></div>
+<div class="startcategory" onclick="alert('Coming soon...')"></div>
+<div class="startcategory" onclick="alert('Coming soon...')"></div>
 </div>
 
 
