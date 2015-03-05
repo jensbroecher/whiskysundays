@@ -56,7 +56,7 @@ a {
 
 body {
 	-webkit-text-size-adjust: none;
-	background-color: #999;
+	background-color: #000;
 }
 .subtext {
 	color: #DE4809;
@@ -128,5 +128,5 @@ body {
 	font-size: 14px;
 }
 #position em.on {
-	color: #000000;
+	color: #FFFFFF;
 } 
