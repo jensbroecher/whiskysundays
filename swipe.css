@@ -47,7 +47,8 @@ a {
 
 
 body {
-  -webkit-text-size-adjust:none;
+	-webkit-text-size-adjust: none;
+	background-color: #999;
 }
 .subtext {
 	color: #DE4809;
