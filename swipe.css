@@ -7,6 +7,16 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, 
   vertical-align:baseline;
   background:transparent;
 }
+
+
+body {
+	-webkit-text-size-adjust: none;
+	background-color: #000;
+	background-image: url(featured/smokebg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
 #featuredproductslist span {
 	font-size: 14px;
 	color: #FFF;
@@ -51,12 +61,6 @@ a {
 	color: #757575;
 	padding-bottom: 45px;
 	padding-top: 45px;
-}
-
-
-body {
-	-webkit-text-size-adjust: none;
-	background-color: #000;
 }
 .subtext {
 	color: #DE4809;
