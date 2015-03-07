@@ -20,6 +20,7 @@ body {
 #agecheck {
 	width: 100%;
 }
+
 #agecheckboxes {
 
 }
@@ -268,12 +269,29 @@ body {
 	z-index: 120;
 	display: none;
 	text-align: center;
+	padding-top: 10px;
+}
+.payoptionheadline {
+	font-size: 14px;
+	color: #000;
+	background-color: #CCC;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	width: 60%;
+	padding-right: 0px;
+	padding-left: 0px;
+	border: 2px solid #CCC;
 }
 .paymentprovider {
-	padding: 5px;
-	width: 70%;
+	padding: 0px;
+	width: 60%;
 	border: 2px solid #CCC;
-	margin-bottom: 3px;
+	margin-top: 3px;
 }
 .paymentprovider:hover {
 	border: 2px solid #000;

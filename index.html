@@ -1005,12 +1005,12 @@ USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHO
 
 </div>
 <div id="choosepaymentoptions" class="animated fadeIn">
-<h1 style="display:none;">Pay using PesaPal</h1>
-<img style="margin-top:10px;" class="paymentprovider" onClick="localStorage.setItem('payoption','pesapal');paystart();" src="paypesapal.png">
-<h1 style="display:none;">Pay using PayPal</h1>
+<h1 class="payoptionheadline">Pay using PesaPal</h1>
+<img class="paymentprovider" onClick="localStorage.setItem('payoption','pesapal');paystart();" src="paypesapal.png">
+<h1 class="payoptionheadline">Pay using PayPal</h1>
 <img class="paymentprovider" onClick="localStorage.setItem('payoption','paypal');paystart();" src="paypaypal.png">
-<h1 style="display:none;">Cash on Delivery</h1>
-<img class="paymentprovider" onClick="" src="paycash.png">
+<h1 class="payoptionheadline">Cash on Delivery</h1>
+<img class="paymentprovider" onClick="alert('This payment option is not available yet');" src="paycash.png">
 </div>
 
 <div id="devoptions">
