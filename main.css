@@ -440,3 +440,10 @@ h1 {
 	padding: 5%;
 	font-size: 14px;
 }
+.pimg {
+
+}
+.pimg img  {
+	height: 100px;
+	width: auto;
+}

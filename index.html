@@ -39,9 +39,37 @@ window.plugin.notification.local.add({
 
 function dothisonload(){
 	
-	
-	
 	// alert('wurdegeladen');
+	
+	var customername = localStorage.getItem('customername');
+	var customeremail = localStorage.getItem('customeremail');
+	var customerphone = localStorage.getItem('customerphone');
+	var customerage = localStorage.getItem('customerage');
+	var customercomments = localStorage.getItem('customercomments');
+	var customeraddress = localStorage.getItem('customeraddress');
+	var customerdirections = localStorage.getItem('customerdirections');
+	
+	var customernamelength = customername.length;
+	
+	if (customernamelength > 2) {
+		alert('Good to see you again, '+customername+'!');
+	}
+	
+	// alert(customername);
+	// alert(customeremail);
+	// alert(customerphone);
+	// alert(customerage);
+	// alert(customercomments);
+	// alert(customeraddress);
+	// alert(customerdirections);
+	
+	document.getElementById('customername').value = customername;
+	document.getElementById('customeremail').value = customeremail;
+	document.getElementById('customerphone').value = customerphone;
+	document.getElementById('customerage').value = customerage;
+	document.getElementById('customercomments').value = customercomments;
+	document.getElementById('customeraddress').value = customeraddress;
+	document.getElementById('customerdirections').value = customerdirections;
 	
 		parsePlugin.initialize('khkU5e54h04HNCvj8PxMb1H84aKyUHPdL1LAsTNB','34GXbwMD5F2dy9VqwH31UlA5T3nvJB4Z1M6qO8Ei', function() {
 
@@ -485,9 +513,19 @@ function ajaxorderform() {
 	var customerphone = document.getElementById("customerphone").value;
 	var customerage = document.getElementById("customerage").value;
 	var customercomments = document.getElementById("customercomments").value;
+	var customeraddress = document.getElementById("customeraddress").value;
+	var customerdirections = document.getElementById("customerdirections").value;
 	var latview = document.getElementById("lat-view").innerHTML;
 	var longview = document.getElementById("long-view").innerHTML;
 	var total = document.getElementById('totalammount2').innerHTML;
+	
+	// alert(customername);
+	// alert(customeremail);
+	// alert(customerphone);
+	// alert(customerage);
+	// alert(customercomments);
+	// alert(customeraddress);
+	// alert(customerdirections);
 	
 	var totalusd =  total / 87;
 	
@@ -498,6 +536,8 @@ function ajaxorderform() {
 	localStorage.setItem('customerphone',customerphone);
 	localStorage.setItem('customerage',customerage);
 	localStorage.setItem('customercomments',customercomments);
+	localStorage.setItem('customeraddress',customeraddress);
+	localStorage.setItem('customerdirections',customerdirections);
 	localStorage.setItem('latview',latview);
 	localStorage.setItem('longview',longview);
 	localStorage.setItem('locationinnairobi',locationinnairobi);
@@ -646,6 +686,15 @@ function paystart() {
 	var customeremail = localStorage.getItem('customeremail');
 	var customerphone = localStorage.getItem('customerphone');
 	var customerage = localStorage.getItem('customerage');
+
+	var customercomments = localStorage.getItem('customercomments');
+	var customeraddress = localStorage.getItem('customeraddress');
+	var customerdirections = localStorage.getItem('customerdirections');
+	
+	// alert(customercomments);
+	// alert(customeraddress);
+	// alert(customerdirections);
+	
 	var locationinnairobi = localStorage.getItem('locationinnairobi');
 	var latview = localStorage.getItem('latview');
 	var longview = localStorage.getItem('longview');
@@ -713,15 +762,11 @@ function paystart() {
 	var productid9 = localStorage.getItem('productid9');
 	var productid10 = localStorage.getItem('productid10');
 	
-	alert(productid1);
-	alert(productid2);
-	alert(productid3);
-	
 	if  (payoption == 'paypal') {
-	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PayPal';
+	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&customeraddress='+customeraddress+'&customerdirections='+customerdirections+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PayPal';
 	}
 	if  (payoption == 'pesapal') {
-	window.location.href = 'http://enunua.com/whiskysundays/gopesapal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PesaPal';
+	window.location.href = 'http://enunua.com/whiskysundays/gopesapal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&customeraddress='+customeraddress+'&customerdirections='+customerdirections+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PesaPal';
 	}
 	lpushorder();
 }
@@ -979,7 +1024,7 @@ USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHO
 
 <input id="customeraddress" required type="text" placeholder="Address">
 
-<input id="customerdirections" required type="text" placeholder="Directions">
+<input id="customerdirections" type="text" placeholder="Directions">
 
 <input id="customercomments" type="text" placeholder="Special Instructions">
 
@@ -1056,7 +1101,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
  
 </td></tr></table>
 
-<button class="opencartwindowbutton"  onClick="proceedwithorderformsubmit();">Choose Payment Method</button>
+<button class="opencartwindowbutton"  onClick="proceedwithorderformsubmit();">Continue</button>
 <input style="display:none" id="proceedorderform1submit" name="Submit" type="submit" value="Submit">
 
 </form>
