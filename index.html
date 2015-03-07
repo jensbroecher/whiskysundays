@@ -127,6 +127,17 @@ function clearall() {
 	document.getElementById('totalammount').innerHTML = 0;
 	document.getElementById('totalammount2').innerHTML = 0;
 	document.getElementById('addedtocartnumber').innerHTML = 0;
+	
+	document.getElementById('productid1').innerHTML = '';
+	document.getElementById('productid2').innerHTML = '';
+	document.getElementById('productid3').innerHTML = '';
+	document.getElementById('productid4').innerHTML = '';
+	document.getElementById('productid5').innerHTML = '';
+	document.getElementById('productid6').innerHTML = '';
+	document.getElementById('productid7').innerHTML = '';
+	document.getElementById('productid8').innerHTML = '';
+	document.getElementById('productid9').innerHTML = '';
+	document.getElementById('productid10').innerHTML = '';
 }
 
 function clearcheckout() {
@@ -211,6 +222,7 @@ return;
 	document.getElementById('opencartwindow').style.display='block';
 	
 	document.getElementById('product').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size').innerHTML = localStorage.getItem('size');
 	document.getElementById('price').innerHTML = localStorage.getItem('price');
 	document.getElementById('howmany').innerHTML = localStorage.getItem('numberofproducts');
@@ -236,6 +248,7 @@ return;
 	if(scoreinbox1 == 1){
 		
 	document.getElementById('product1').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid1').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size1').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price1').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity1').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -244,6 +257,7 @@ return;
 	else if(scoreinbox1 == 2){
 		
 	document.getElementById('product2').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid2').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size2').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price2').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity2').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -252,6 +266,7 @@ return;
 	else if(scoreinbox1 == 3){
 		
 	document.getElementById('product3').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid3').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size3').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price3').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity3').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -260,6 +275,7 @@ return;
 	else if(scoreinbox1 == 4){
 		
 	document.getElementById('product4').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid4').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size4').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price4').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity4').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -268,6 +284,7 @@ return;
 	else if(scoreinbox1 == 5){
 		
 	document.getElementById('product5').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid5').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size5').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price5').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity5').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -276,6 +293,7 @@ return;
 	else if(scoreinbox1 == 6){
 		
 	document.getElementById('product6').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid6').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size6').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price6').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity6').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -284,6 +302,7 @@ return;
 	else if(scoreinbox1 == 7){
 		
 	document.getElementById('product7').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid7').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size7').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price7').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity7').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -292,6 +311,7 @@ return;
 	else if(scoreinbox1 == 8){
 		
 	document.getElementById('product8').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid8').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size8').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price8').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity8').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -300,6 +320,7 @@ return;
 	else if(scoreinbox1 == 9){
 		
 	document.getElementById('product9').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid9').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size9').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price9').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity9').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -308,6 +329,7 @@ return;
 	else if(scoreinbox1 == 10){
 		
 	document.getElementById('product10').innerHTML = localStorage.getItem('product');
+	document.getElementById('productid10').innerHTML = localStorage.getItem('productid');
 	document.getElementById('size10').innerHTML = localStorage.getItem('size')  + ' ML';
 	document.getElementById('price10').innerHTML = localStorage.getItem('price') + ' KES';
 	document.getElementById('quantity10').innerHTML = localStorage.getItem('numberofproducts') + 'x';
@@ -451,6 +473,7 @@ function disp(pos) {
 function ajaxorderform() {
 	
 	localStorage.removeItem('product');
+	localStorage.removeItem('productid');
 	localStorage.removeItem('size');
 	localStorage.removeItem('price');
 	
@@ -690,6 +713,10 @@ function paystart() {
 	var productid9 = localStorage.getItem('productid9');
 	var productid10 = localStorage.getItem('productid10');
 	
+	alert(productid1);
+	alert(productid2);
+	alert(productid3);
+	
 	if  (payoption == 'paypal') {
 	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PayPal';
 	}
@@ -902,7 +929,7 @@ document.getElementById('splashstart').className = 'animated fadeOut';setTimeout
 document.getElementById('splashstart').style.display='none';},1000);
 document.getElementById('page').style.display='block';location.href = '#START';
 localStorage.setItem("agecheck", "yes");
-lpush();
+// lpush();
 }
 else {
     alert("Sorry, you are below 18 years old.");
@@ -952,6 +979,8 @@ USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHO
 
 <input id="customeraddress" required type="text" placeholder="Address">
 
+<input id="customerdirections" required type="text" placeholder="Directions">
+
 <input id="customercomments" type="text" placeholder="Special Instructions">
 
 <div class="notice">
@@ -959,6 +988,7 @@ WHISKY SUNDAYS is currently only available in Nairobi. We are adding more locati
 </div>
 
 <select id="chooseareainnairobi">
+  <option value="Unknown">Please select your location:</option>
   <option value="Other">Other (Not in list)</option>
   <option value="CBD">CBD (Town)</option>
   <option value="Dagoretti">Dagoretti</option>
@@ -1043,6 +1073,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid1"></div>
 <div class="animated fadeIn andel1" id="product1"></div>
 <div class="animated fadeIn andel1"><span id="size1"></span> </div>
 <div class="animated fadeIn andel1"><span id="price1"></span> </div>
@@ -1051,6 +1082,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid2"></div>
 <div class="animated fadeIn andel2" id="product2"></div>
 <div class="animated fadeIn andel2"><span id="size2"></span> </div>
 <div class="animated fadeIn andel2"><span id="price2"></span> </div>
@@ -1059,6 +1091,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid3"></div>
 <div class="animated fadeIn andel3" id="product3"></div>
 <div class="animated fadeIn andel3"><span id="size3"></span> </div>
 <div class="animated fadeIn andel3"><span id="price3"></span> </div>
@@ -1067,6 +1100,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid4"></div>
 <div class="animated fadeIn andel4" id="product4"></div>
 <div class="animated fadeIn andel4"><span id="size4"></span> </div>
 <div class="animated fadeIn andel4"><span id="price4"></span> </div>
@@ -1075,6 +1109,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid5"></div>
 <div class="animated fadeIn andel5" id="product5"></div>
 <div class="animated fadeIn andel5"><span id="size5"></span> </div>
 <div class="animated fadeIn andel5"><span id="price5"></span> </div>
@@ -1083,6 +1118,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid6"></div>
 <div class="animated fadeIn andel6" id="product6"></div>
 <div class="animated fadeIn andel6"><span id="size6"></span> </div>
 <div class="animated fadeIn andel6"><span id="price6"></span> </div>
@@ -1091,6 +1127,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid7"></div>
 <div class="animated fadeIn andel7" id="product7"></div>
 <div class="animated fadeIn andel7"><span id="size7"></span> </div>
 <div class="animated fadeIn andel7"><span id="price7"></span> </div>
@@ -1099,6 +1136,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid8"></div>
 <div class="animated fadeIn andel8" id="product8"></div>
 <div class="animated fadeIn andel8"><span id="size8"></span> </div>
 <div class="animated fadeIn andel8"><span id="price8"></span> </div>
@@ -1107,6 +1145,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid9"></div>
 <div class="animated fadeIn andel9" id="product9"></div>
 <div class="animated fadeIn andel9"><span id="size9"></span> </div>
 <div class="animated fadeIn andel9"><span id="price9"></span> </div>
@@ -1115,6 +1154,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 </td></tr></table>
 <table><tr><td>
 
+<div style="display:none;" class="animated fadeIn andel10" id="productid10"></div>
 <div class="animated fadeIn andel10" id="product10"></div>
 <div class="animated fadeIn andel10"><span id="size10"></span> </div>
 <div class="animated fadeIn andel10"><span id="price10"></span> </div>
@@ -1144,6 +1184,7 @@ I have read and agreed to the <span onClick="document.getElementById('tnc').styl
 
 <div id="opencartwindow" class="animated gogo">
 <div class="titleincartwindow">Product added:</div>
+<div style="display:none;" class="listallproducts listproduct" id="productid"></div>
 <div class="listallproducts listproduct" id="product"></div>
 <div class="listproduct"><span id="size"></span> ML</div>
 <div class="listproduct"><span id="price"></span> KES</div>
