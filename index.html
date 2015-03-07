@@ -170,16 +170,25 @@ alert("Please enter a number!");
 }
 function openpreorderwindow() {
 notifyproduct = localStorage.getItem('product');
+notifyproductid = localStorage.getItem('productid');
 valuefrompromtname = prompt("Name?", "");
 if(!valuefrompromtname){
    alert('Please enter your name.');
    return;
  };
 valuefrompromtphone = prompt("Phone?", "");
+if(!valuefrompromtphone){
+   alert('Please enter your phone number.');
+   return;
+ };
 valuefrompromtemail = prompt("E-Mail?", "");
+if(!valuefrompromtemail){
+   alert('Please enter your E-Mail.');
+   return;
+ };
 
 xmlhttp=new XMLHttpRequest();
-xmlhttp.open("GET","http://enunua.com/whiskysundays/preorder.php?name=" + valuefrompromtname + "&phone=" + valuefrompromtphone + "&email=" + valuefrompromtemail + "&product=" + notifyproduct + "",true);
+xmlhttp.open("GET","http://enunua.com/whiskysundays/preorder.php?name=" + valuefrompromtname + "&phone=" + valuefrompromtphone + "&email=" + valuefrompromtemail + "&product=" + notifyproduct + "&productid=" + notifyproductid + "",true);
 xmlhttp.send();
 		
 alert('Thank you ' + valuefrompromtname + ', we will notifiy you when ' + notifyproduct + ' becomes available.');
@@ -582,6 +591,28 @@ function ajaxorderform() {
 	// alert(latview);
 	// alert(longview);
 	
+	var productid1 = document.getElementById('productid1').innerHTML;
+	var productid2 = document.getElementById('productid2').innerHTML;
+	var productid3 = document.getElementById('productid3').innerHTML;
+	var productid4 = document.getElementById('productid4').innerHTML;
+	var productid5 = document.getElementById('productid5').innerHTML;
+	var productid6 = document.getElementById('productid6').innerHTML;
+	var productid7 = document.getElementById('productid7').innerHTML;
+	var productid8 = document.getElementById('productid8').innerHTML;
+	var productid9 = document.getElementById('productid9').innerHTML;
+	var productid10 = document.getElementById('productid10').innerHTML;
+	
+	localStorage.setItem('productid1',productid1);
+	localStorage.setItem('productid2',productid2);
+	localStorage.setItem('productid3',productid3);
+	localStorage.setItem('productid4',productid4);
+	localStorage.setItem('productid5',productid5);
+	localStorage.setItem('productid6',productid6);
+	localStorage.setItem('productid7',productid7);
+	localStorage.setItem('productid8',productid8);
+	localStorage.setItem('productid9',productid9);
+	localStorage.setItem('productid10',productid10);
+	
 	document.getElementById('choosepaymentoptions').style.display='block';
 	document.getElementById('proceedwithorder1').style.display='none';
 }
@@ -648,11 +679,22 @@ function paystart() {
 	var price10 = localStorage.getItem('price10');
 	var quantity10 = localStorage.getItem('quantity10');
 	
+	var productid1 = localStorage.getItem('productid1');
+	var productid2 = localStorage.getItem('productid2');
+	var productid3 = localStorage.getItem('productid3');
+	var productid4 = localStorage.getItem('productid4');
+	var productid5 = localStorage.getItem('productid5');
+	var productid6 = localStorage.getItem('productid6');
+	var productid7 = localStorage.getItem('productid7');
+	var productid8 = localStorage.getItem('productid8');
+	var productid9 = localStorage.getItem('productid9');
+	var productid10 = localStorage.getItem('productid10');
+	
 	if  (payoption == 'paypal') {
-	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&paytype=PayPal';
+	window.location.href = 'http://enunua.com/whiskysundays/gopaypal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PayPal';
 	}
 	if  (payoption == 'pesapal') {
-	window.location.href = 'http://enunua.com/whiskysundays/gopesapal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&paytype=PesaPal';
+	window.location.href = 'http://enunua.com/whiskysundays/gopesapal.php?customername='+customername+'&customeremail='+customeremail+'&customerphone='+customerphone+'&customerage='+customerage+'&customercomments='+customercomments+'&locationinnairobi='+locationinnairobi+'&latview='+latview+'&longview='+longview+'&total='+total+'&totalusd='+totalusd+'&product1='+product1+'&product2='+product2+'&product3='+product3+'&product4='+product4+'&product5='+product5+'&product6='+product6+'&product7='+product7+'&product8='+product8+'&product9='+product9+'&product10='+product10+'&price1='+price1+'&price2='+price2+'&price3='+price3+'&price4='+price4+'&price5='+price5+'&price6='+price6+'&price7='+price7+'&price8='+price8+'&price9='+price9+'&price10='+price10+'&size1='+size1+'&size2='+size2+'&size3='+size3+'&size4='+size4+'&size5='+size5+'&size6='+size6+'&size7='+size7+'&size8='+size8+'&size9='+size9+'&size10='+size10+'&quantity1='+quantity1+'&quantity2='+quantity2+'&quantity3='+quantity3+'&quantity4='+quantity4+'&quantity5='+quantity5+'&quantity6='+quantity6+'&quantity7='+quantity7+'&quantity8='+quantity8+'&quantity9='+quantity9+'&quantity10='+quantity10+'&productid1='+productid1+'&productid2='+productid2+'&productid3='+productid3+'&productid4='+productid4+'&productid5='+productid5+'&productid6='+productid6+'&productid7='+productid7+'&productid8='+productid8+'&productid9='+productid9+'&productid10='+productid10+'&paytype=PesaPal';
 	}
 	lpushorder();
 }
@@ -671,11 +713,11 @@ function paystart() {
 </div>
 
 <div id="splashstart" style="text-align:center; position:absolute; width:100%; height:100%; background-image: url(bgwhiskey.png); background-repeat: no-repeat; background-position: center top; background-size: cover !important; background-color:#000; z-index:1000;"><br>
-<img src="whiskey-sundays-logo-potrait.png" class="animated fadeIn" width="270" style="-webkit-animation-delay: 0s;">
+<img src="whiskey-sundays-logo-potrait.png" class="animated fadeIn" width="270" style="-webkit-animation-delay: 2s;">
 <div id="agecheck">
 
-  <div class="white uppercase huge">we need to verify your age</div>
-        <div class="white uppercase medium">it's just a part of our commitment to responsible drinking.</div>
+  <div class="white uppercase huge animated fadeIn" style="-webkit-animation-delay: 2s;">we need to verify your age</div>
+        <div class="white uppercase medium animated fadeIn" style="-webkit-animation-delay: 2s;">it's just a part of our commitment to responsible drinking.</div>
         <div class="spacer_medium"></div>
 
 <div id="agecheckboxes" class="animated fadeIn" style="-webkit-animation-delay: 2s;">
@@ -870,11 +912,11 @@ else {
 
 <div id="selectdrink" class="animated fadeIn" onclick="agecheck();" style="-webkit-animation-delay: 2s;">Enter</div>
 
-<div id="splashsocial"><img class="animated bounceIn" style="-webkit-animation-delay: 2s;" onClick="navigator.app.loadUrl('https://www.facebook.com/whiskysundayske', {openexternal : true});" src="social_fb.png"><img class="animated bounceIn" style="-webkit-animation-delay: 2.1s;" onClick="navigator.app.loadUrl('https://twitter.com/whiskysundayske', {openexternal : true});" src="social_twitter.png"><img class="animated bounceIn" style="-webkit-animation-delay: 2.2s;" onClick="alert('Coming soon...')" src="social_instagram.png"><img class="animated bounceIn" style="-webkit-animation-delay: 2.3s;" onClick="alert('Coming soon...')" src="social_gplus.png"></div>
+<div id="splashsocial"><img class="animated bounceIn" style="-webkit-animation-delay: 3s;" onClick="navigator.app.loadUrl('https://www.facebook.com/whiskysundayske', {openexternal : true});" src="social_fb.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.1s;" onClick="navigator.app.loadUrl('https://twitter.com/whiskysundayske', {openexternal : true});" src="social_twitter.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.2s;" onClick="alert('Coming soon...')" src="social_instagram.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.3s;" onClick="alert('Coming soon...')" src="social_gplus.png"></div>
 
-<div id="warning" class="animated fadeIn" style="-webkit-animation-delay: 3s;" onClick="document.getElementById('tnc').style.display='block';">
+<div id="warning" class="animated fadeIn" style="-webkit-animation-delay: 4s;" onClick="document.getElementById('tnc').style.display='block';">
  PLEASE ENJOY ALCOHOL RESPONSIBLY.
-USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHOL BEVERAGE IS LAWFUL, OF PERSONS WHO ARE LAWFULLY PERMITTED TO CONSUME ALCOHOLIC BEVERAGES. By using the app / website you accept our <span style="text-decoration:underline;">terms and conditions &amp; privacy policy</span>. WE SUPPORT RESPONSIBLE DECISION-MAKING. © 2015 WHISKY SUNDAYS. Developed by JTH Consulting Ltd.</div>
+USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHOL BEVERAGE IS LAWFUL, OF PERSONS WHO ARE LAWFULLY PERMITTED TO CONSUME ALCOHOLIC BEVERAGES. By using the app / website you accept our <span style="text-decoration:underline;">terms and conditions &amp; privacy policy</span>. WE SUPPORT RESPONSIBLE DECISION-MAKING. © 2015 Whisky Sundays Ltd. Developed by JTH Consulting Ltd.</div>
 
 </div>
 <div id="choosepaymentoptions" class="animated fadeIn">
