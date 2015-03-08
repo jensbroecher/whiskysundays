@@ -39,6 +39,8 @@ window.plugin.notification.local.add({
 
 function dothisonload(){
 	
+navigator.geolocation.getCurrentPosition(disp);
+	
 	// alert('wurdegeladen');
 	
 	var customername = localStorage.getItem('customername');
