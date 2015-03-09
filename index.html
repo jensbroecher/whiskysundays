@@ -215,7 +215,7 @@ localStorage.setItem('numberofproducts',valuefrompromt);
 opencartwindow2();
 }
 else if (!isNumber (valuefrompromt)) {
-alert("Please enter a number!");
+alert("Please enter a number");
 }
 }
 function openpreorderwindow() {
@@ -223,17 +223,17 @@ notifyproduct = localStorage.getItem('product');
 notifyproductid = localStorage.getItem('productid');
 valuefrompromtname = prompt("Name?", "");
 if(!valuefrompromtname){
-   alert('Please enter your name.');
+   alert('Please enter your name');
    return;
  };
 valuefrompromtphone = prompt("Phone?", "");
 if(!valuefrompromtphone){
-   alert('Please enter your phone number.');
+   alert('Please enter your phone number');
    return;
  };
 valuefrompromtemail = prompt("E-Mail?", "");
 if(!valuefrompromtemail){
-   alert('Please enter your E-Mail.');
+   alert('Please enter your E-Mail');
    return;
  };
 
@@ -241,7 +241,7 @@ xmlhttp=new XMLHttpRequest();
 xmlhttp.open("GET","http://enunua.com/whiskysundays/preorder.php?name=" + valuefrompromtname + "&phone=" + valuefrompromtphone + "&email=" + valuefrompromtemail + "&product=" + notifyproduct + "&productid=" + notifyproductid + "",true);
 xmlhttp.send();
 		
-alert('Thank you ' + valuefrompromtname + ', we will notifiy you when ' + notifyproduct + ' becomes available.');
+alert('Thank you ' + valuefrompromtname + ', we will notifiy you when ' + notifyproduct + ' becomes available');
 
 }
 function opencartwindow2() {
@@ -250,7 +250,7 @@ var howmanycompare = localStorage.getItem('numberofproducts');
 var instock = localStorage.getItem('instock');
 	
 if (+howmanycompare > +instock) {
-alert("We do not have enough products in stock. Please order "+instock+" or less. Thank you.");
+alert("We do not have enough products in stock. Please order "+instock+" or less. Thank you");
 return;
 }
 	
@@ -375,7 +375,7 @@ return;
 
 	}
 	else {
-		alert('Maximum number of products reached. Please order now!');
+		alert('Maximum number of products reached. Please order now');
 		document.getElementById('addedtocartnumber').innerHTML=10;
 		document.getElementById('continueshoppingbuttononorder').style.display='none';
 	}
@@ -486,7 +486,7 @@ function proceedwithorder1() {
 	navigator.geolocation.getCurrentPosition(disp);
 	
 	if (+currentotal < requiredtotal) {
-        alert("Sorry, minimum order price not reached! Order for 1000 KES and above and enjoy free delivery!");
+        alert("Sorry, minimum order price not reached! Order for 1000 KES and above and enjoy free delivery.");
         return false;
     }
 	else {
@@ -964,13 +964,13 @@ var day = $('#AgegateDay option:selected').val()
     var age = 18;
 	
 	if(day=='') {
-	alert('Please select a day.');return;
+	alert('Please select a day');return;
 	}
 	if(month=='') {
-	alert('Please select a month.');return;
+	alert('Please select a month');return;
 	}
 	if(year=='') {
-	alert('Please select a year.');return;
+	alert('Please select a year');return;
 	}
 	
 	localStorage.setItem('day',day);
@@ -992,7 +992,7 @@ localStorage.setItem("agecheck", "yes");
 // lpush();
 }
 else {
-    alert("Sorry, you are below 18 years old.");
+    alert("Sorry, you are below 18 years old");
 }
 }
 </script>
@@ -1001,7 +1001,7 @@ else {
 
 <div id="splashsocial"><img class="animated bounceIn" style="-webkit-animation-delay: 3s;" onClick="navigator.app.loadUrl('https://www.facebook.com/whiskysundayske', {openexternal : true});" src="social_fb.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.1s;" onClick="navigator.app.loadUrl('https://twitter.com/whiskysundayske', {openexternal : true});" src="social_twitter.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.2s;" onClick="alert('Coming soon...')" src="social_instagram.png"><img class="animated bounceIn" style="-webkit-animation-delay: 3.3s;" onClick="alert('Coming soon...')" src="social_gplus.png"></div>
 
-<div id="warning" class="animated fadeIn" style="-webkit-animation-delay: 4s;" onClick="document.getElementById('tnc').style.display='block';">
+<div id="warning" class="animated fadeIn" style="-webkit-animation-delay: 4s;" onClick="document.getElementById('tnc').style.display='block';$("html, body").animate({ scrollTop: 0 }, "slow");">
  PLEASE ENJOY ALCOHOL RESPONSIBLY.
 USE OF THIS APP IS FOR PERSONAL USE IN COUNTRIES WHERE THE CONSUMPTION OF ALCOHOL BEVERAGE IS LAWFUL, OF PERSONS WHO ARE LAWFULLY PERMITTED TO CONSUME ALCOHOLIC BEVERAGES. By using the app / website you accept our <span style="text-decoration:underline;">terms and conditions &amp; privacy policy</span>. WE SUPPORT RESPONSIBLE DECISION-MAKING. © 2015 Whisky Sundays Ltd. Developed by JTH Consulting Ltd.</div>
 

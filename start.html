@@ -1,3 +1,4 @@
+<script src="jquery.min.js"></script>
 <style type="text/css">
 #startcategories .startcategory {
 	background-color: #FFF;
@@ -91,6 +92,8 @@
 		alert('Please enter a search term');	
 		return;
 		}
+		
+		var dosearch = encodeURI(dosearch);
 		
 		$('#page').load('http://enunua.com/whiskysundays/load_searchproduct.php?searchterm='+dosearch+'',function(responseTxt,statusTxt,xhr){});location.href = '#SEARCH';
 		
