@@ -180,7 +180,7 @@ function clearall() {
 }
 
 function clearcheckout() {
-	var closeit = confirm("Are you sure you want to clear your Shopping Cart?");
+	var closeit = confirm("Are you sure you want to clear your shopping cart?");
 if (closeit == true) {
 	
   	 $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -400,6 +400,8 @@ function openorderwindow() {
 	
 	document.getElementById('ordernowwindow').style.display='block';
 	document.getElementById('mainholder').style.display='none';
+	
+	location.href = '#ORDER';
 	
 }
 function closeorderwindow() {
