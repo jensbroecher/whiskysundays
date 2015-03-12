@@ -422,6 +422,13 @@ h1 {
 	padding-left: 10px;
 	float: right;
 }
+@media screen and (max-width: 400px){
+#navigation select {
+	height: 40px !important;
+	width: 40%;
+}
+}
+
 #navigation img {
 	margin-left: 5%;
 	height: 100%;
