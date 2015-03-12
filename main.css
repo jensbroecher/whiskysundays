@@ -422,7 +422,7 @@ h1 {
 	padding-left: 10px;
 	float: right;
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 320px){
 #navigation select {
 	height: 40px !important;
 	width: 40%;
