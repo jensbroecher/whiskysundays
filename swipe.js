@@ -16,9 +16,9 @@ window.Swipe = function(element, options) {
   // retreive options
   this.options = options || {};
   this.index = this.options.startSlide || 0;
-  this.speed = this.options.speed || 300;
+  this.speed = this.options.speed || 500;
   this.callback = this.options.callback || function() {};
-  this.delay = this.options.auto || 0;
+  this.delay = this.options.auto || 2000;
 
   // reference dom elements
   this.container = element;
