@@ -15,74 +15,7 @@
 <script>
 
 function onDeviceReady() {
-
-}
-
-function lpushorder() {
-window.plugin.notification.local.add({
-    id:         1,
-    message:    'We recieved your order! Thanks for choosing Whisky Sundays',
-    title:      'Order Recieved',
-    autoCancel: true,
-    ongoing:    false
-});
-}
-function lpush() {
-window.plugin.notification.local.add({
-    id:         1,
-    message:    'Thanks for choosing Whisky Sundays',
-    title:      'Welcome',
-    autoCancel: true,
-    ongoing:    false
-});
-}
-
-function dothisonload(){
-	
-navigator.geolocation.getCurrentPosition(disp);
-	
-	// alert('wurdegeladen');
-	
-	var customername = localStorage.getItem('customername');
-	var customeremail = localStorage.getItem('customeremail');
-	var customerphone = localStorage.getItem('customerphone');
-	var customerage = localStorage.getItem('customerage');
-	var customercomments = localStorage.getItem('customercomments');
-	var customeraddress = localStorage.getItem('customeraddress');
-	var customerdirections = localStorage.getItem('customerdirections');
-	
-	var customernamelength = customername.length;
-	
-	if (customernamelength > 2) {
-		alert('Good to see you again, '+customername+'');
-		
-		var whatdayselected = localStorage.getItem('day');
-		document.getElementById('AgegateDay').value=whatdayselected;
-		
-		var whatmonthselected = localStorage.getItem('month');
-		document.getElementById('AgegateMonth').value=whatmonthselected;
-		
-		var whatyearselected = localStorage.getItem('year');
-		document.getElementById('AgegateYear').value=whatyearselected;
-	}
-	
-	// alert(customername);
-	// alert(customeremail);
-	// alert(customerphone);
-	// alert(customerage);
-	// alert(customercomments);
-	// alert(customeraddress);
-	// alert(customerdirections);
-	
-	document.getElementById('customername').value = customername;
-	document.getElementById('customeremail').value = customeremail;
-	document.getElementById('customerphone').value = customerphone;
-	document.getElementById('customerage').value = customerage;
-	document.getElementById('customercomments').value = customercomments;
-	document.getElementById('customeraddress').value = customeraddress;
-	document.getElementById('customerdirections').value = customerdirections;
-	
-		parsePlugin.initialize('khkU5e54h04HNCvj8PxMb1H84aKyUHPdL1LAsTNB','34GXbwMD5F2dy9VqwH31UlA5T3nvJB4Z1M6qO8Ei', function() {
+parsePlugin.initialize('khkU5e54h04HNCvj8PxMb1H84aKyUHPdL1LAsTNB','34GXbwMD5F2dy9VqwH31UlA5T3nvJB4Z1M6qO8Ei', function() {
 
     parsePlugin.subscribe('WHISKYSUNDAYS', function() {
 
@@ -109,6 +42,61 @@ navigator.geolocation.getCurrentPosition(disp);
 }, function(e) {
     alert('error');
 });	
+}
+
+function lpushorder() {
+window.plugin.notification.local.add({
+    id:         1,
+    message:    'We recieved your order! Thanks for choosing Whisky Sundays',
+    title:      'Order Recieved',
+    autoCancel: true,
+    ongoing:    false
+});
+}
+function lpush() {
+window.plugin.notification.local.add({
+    id:         1,
+    message:    'Thanks for choosing Whisky Sundays',
+    title:      'Welcome',
+    autoCancel: true,
+    ongoing:    false
+});
+}
+
+function dothisonload(){
+	
+navigator.geolocation.getCurrentPosition(disp);
+	
+	var customername = localStorage.getItem('customername');
+	var customeremail = localStorage.getItem('customeremail');
+	var customerphone = localStorage.getItem('customerphone');
+	var customerage = localStorage.getItem('customerage');
+	var customercomments = localStorage.getItem('customercomments');
+	var customeraddress = localStorage.getItem('customeraddress');
+	var customerdirections = localStorage.getItem('customerdirections');
+	
+	var customernamelength = customername.length;
+	
+	if (customernamelength > 2) {
+		alert('Good to see you again, '+customername+'');
+		
+		var whatdayselected = localStorage.getItem('day');
+		document.getElementById('AgegateDay').value=whatdayselected;
+		
+		var whatmonthselected = localStorage.getItem('month');
+		document.getElementById('AgegateMonth').value=whatmonthselected;
+		
+		var whatyearselected = localStorage.getItem('year');
+		document.getElementById('AgegateYear').value=whatyearselected;
+	}
+	
+	document.getElementById('customername').value = customername;
+	document.getElementById('customeremail').value = customeremail;
+	document.getElementById('customerphone').value = customerphone;
+	document.getElementById('customerage').value = customerage;
+	document.getElementById('customercomments').value = customercomments;
+	document.getElementById('customeraddress').value = customeraddress;
+	document.getElementById('customerdirections').value = customerdirections;
 
 }
 
@@ -194,8 +182,6 @@ if (closeit == true) {
 	 document.getElementById('mainholder').className = 'lessblur';
 	 
 	 document.getElementById('mainholder').style.display='block';
-	 
-	 // window.location.reload();
 	 
 } else {
    
@@ -434,7 +420,7 @@ $( document ).ready(function() {
 
 window.plugin.notification.local.add({
     id:         1,
-    message:    'We recieved your order! Thank you for chosing WHISKY SUNDAYS',
+    message:    'We recieved your order! Thank you for choosing WHISKY SUNDAYS',
     title:      'Order Recieved',
     autoCancel: true,
     ongoing:    false
